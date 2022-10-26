@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${person.getFullName()}">Person</title>
+</head>
+<body>
+<span style="color: blueviolet;font-weight: bold">Name: </span> <span th:text="${person.getFullName()}">Name</span>
+<br/>
+<span style="color: blueviolet;font-weight: bold">Birth day: </span> <span th:text="${person.getBirthDay()}">Birth day</span>
+<br/>
+<span style="color: blueviolet;font-weight: bold">Address: </span> <span th:text="${person.getAddress()}">Address</span>
+<br/>
+<span style="color: blueviolet;font-weight: bold">Email: </span> <span th:text="${person.getEmail()}">Email</span>
+<br/>
+<span style="color: blueviolet;font-weight: bold">Date of registration: </span> <span th:text="${person.getRegistrationTime()}">Date registration</span>
+
+<hr/>
+<span>Books:</span>
+<div th:if="${books.isEmpty()}">
+    <span style="color: green" th:text="${person.getFullName()} + ' have not books'">text</span>
+</div>
+
+<div th:if="${!books.isEmpty()}"  th:each="book : ${books}">
+    <div th:if="${book.isOverdue()}">
+        <a  th:href="@{/book/{id}(id=${book.getId()})}"
+            style="color: red" th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getDateRelease()}">Book</a>
+    </div>
+    <div th:if="${!book.isOverdue()}">
+        <a  th:href="@{/book/{id}(id=${book.getId()})}"
+            th:text="${book.getName() + ', ' + book.getAuthor() + ', ' + book.getDateRelease()}">Book</a>
+    </div>
+</div>
+<hr/>
+<form th:method="GET" th:action="@{/person/{id}/edit(id=${person.getId()})}">
+    <input style="color: coral" type="submit" value="Edit a person">
+</form>
+<br/>
+<form th:method="DELETE" th:action="@{/person/{id}(id=${person.getId()})}">
+    <input style="color: red" type="submit" value="Delete a person">
+</form>
+<br/>
+<form th:method="GET" th:action="@{/person}">
+    <input style="color: black" type="submit" value=">>BACK<<">
+</form>
+</body>
+</html>

@@ -1,0 +1,11 @@
+#Configuration for data base (Data source)
+hibernate.driver_class=
+hibernate.connection.url=
+hibernate.connection.username=
+hibernate.connection.password=
+
+#Configuration itself  Hibernate
+hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+#If we want to see a SQL request from Hibernate in console, show_sql need made like true, because by default it is false.
+hibernate.show_sql=true
+hibernate.current_session_context_class=thread
