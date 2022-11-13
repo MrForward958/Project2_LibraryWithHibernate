@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="Alishev_2PROJECT_Library:war">
+    <output-path>$PROJECT_DIR$/Project2_Library/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>Alishev_2PROJECT_Library</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="Project2_Library.war">
+      <element id="artifact" artifact-name="Alishev_2PROJECT_Library:war exploded" />
+    </root>
+  </artifact>
+</component>
